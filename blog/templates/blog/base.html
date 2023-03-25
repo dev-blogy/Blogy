@@ -31,7 +31,13 @@
             {% endblock %}
         </div>
     </div>
-
+    
+    <div class="pagination">
+        <a class="pagin-btn" href="?page={{ page.previous_page_number }}">Previous</a>
+        <p class = "pageNum">page 1 of 10</p>
+        <a class="pagin-btn" href="?page={{ page.next_page_number }}">Next</a>    
+    </div>
+    
     <footer>
         <div class="social-links">
             <div id="twitter" class="social-btn flex-center">
