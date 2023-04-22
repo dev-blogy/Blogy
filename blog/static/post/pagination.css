@@ -1,22 +1,33 @@
+*{
+    margin: 0;
+}
+body{
+    background: #f8f8f8;
+    color: #434343;
+    font-family: Segoe UI;
+}
+a{
+    text-decoration: none;
+    color: #434343;
+}
 .pagination{
-display: flex;
+    display: flex;
 }
 .pagin-btn{
-box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
-color: #434343;
-font-size: smaller;
-padding: 5px;
-display: inline-block;
-width: 5%;
-text-align: center;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+    color: #434343;
+    font-size: smaller;
+    padding: 5px;
+    display: inline-block;
+    width: 5%;
+    text-align: center;
 }
 .pagin-btn:hover {
-cursor: pointer;
-box-shadow: 0px 5px 5px #00000013;
-    
+    cursor: pointer;
+    box-shadow: 0px 5px 5px #00000013;
 }
 .pageNum{
-font-size: smaller;
-padding: 7px;
-color:  #00000090;
+    font-size: smaller;
+    padding: 7px;
+    color:  #00000090;
 }
