@@ -1,4 +1,7 @@
 {% extends "blog/base.html" %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'post/comments.css' %}">
 
 {% block title %}{{ post.title }}{% endblock %}
 
@@ -13,21 +16,29 @@
         Share this post
     </a>
 </p>
-{% with comments.count as total_comments %}
-<h2>
-    {{ total_comments }} comment{{ total_comments|pluralize }}
-</h2>
-{% endwith %}
-{% for comment in comments %}
-<div class="comment">
-    <p class="info">
-        Comment {{ forloop.counter }} by {{ comment.name }}
-        {{ comment.created }}
-    </p>
-    {{ comment.body|linebreaks }}
+<div class="comment-bar">
+    <h2>Comments</h2>
+    {% with comments.count as total_comments %}
+    <h3>
+        {{ total_comments }} comment{{ total_comments|pluralize }}
+    </h3>
+    {% endwith %}
+    {% for comment in comments %}
+        <div class="comment">
+
+            <div class="user-info">
+                <img src="user-pic.png" alt="user-icon" class="user-icon">
+                <h4 class="comment-user"><a href="#">{{ comment.name }}</a></h4>
+                <h5 class="comment-date">{{ comment.created }}</h5>
+            </div>
+
+            <h4 class="comment-content">{{ comment.body|linebreaks }}</h4>
+        </div>
+    
+        {% empty %}
+        <p>There are no comments.</p>
+        {% endfor %}
 </div>
-{% empty %}
-<p>There are no comments.</p>
-{% endfor %}
+<br>
 {% include "blog/post/includes/comment_form.html" %}
 {% endblock %}
